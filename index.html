@@ -1,14 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Library</title>
-     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1>My Library</h1>
 
-     <script src="library.js"></script>
+<body>
+    <h1>My Fancy Library</h1>
+    <div class="main-content">
+        <div class="btn-container">
+            <!-- <button id="show-books-btn" class="btn">Display Books</button> -->
+            <button id="add-book-btn" class="btn">+ New Book</button>
+        </div>
+
+        <!-- container to display books in library dynamically -->
+        <div id="library-container" class="library-container"></div>
+
+    </div>
+
+    <!-- Popup Modal to get information about a new book to add to the library -->
+    <dialog id="addBookPopup">
+        <div class="modal-content">
+            <!-- method="dialog" handles modal closing natively on submit -->
+            <form id="book-form" method="dialog">
+                <h2>Add a Book</h2>
+
+                <div class="form-group">
+                    <label for="title">Book Title:</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div>
+                    <label for="author">Author:</label>
+                    <input type="text" id="author" name="author" required>
+                </div>
+                <div>
+                    <label for="pages">Number of Pages:</label>
+                    <input type="number" id="pages" min="1" name="pages" required>
+                </div>
+                <div>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="read" name="read">Have you read it?
+                    </label>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="submit" id="submit-btn" class="btn">Add to Library</button>
+                    <button type="button" id="close-modal-btn" class="btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
+    <script src="library.js" defer></script>
 </body>
+
 </html>
